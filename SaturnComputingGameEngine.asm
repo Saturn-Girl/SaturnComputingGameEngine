@@ -8,6 +8,7 @@ section .data
 
 section .text
     global _start
+    global _load
     global _add
 
 _start:
@@ -29,3 +30,15 @@ _add:
     push rcx
 
     add rbx,rcx
+    call _load
+_load:
+    mov rax, 60
+    mov rsi, 1
+    mov rdi, 1
+
+    push rax
+    push rsi
+    push rdi
+
+    add rax,rsi
+    add rdi, rax
